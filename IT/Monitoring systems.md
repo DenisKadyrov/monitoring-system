@@ -1,3 +1,6 @@
-Мы будем использовать nogios
-[[grafana]]
 
+[[Grafana]]
+[[Nagios]]
+[[Prometheus]]
+[[Docker]]
+[[Node Exporter]]

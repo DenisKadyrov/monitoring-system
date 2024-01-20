@@ -1,0 +1,30 @@
+---
+- name: Install NRPE server and plugins
+  hosts: your_remote_hosts
+  become: true  # Run tasks with elevated privileges (sudo)
+
+  tasks:
+    - name: Update package cache
+      apt:
+        update_cache: yes
+      when: ansible_os_family == 'Ubuntu'
+
+    - name: Install NRPE server and plugins
+      package:
+        name:
+          - nrpe
+          - nagios-plugins
+      when: ansible_os_family == 'Ubuntu'
+
+    - name: Start and enable NRPE service
+      systemd:
+        name: nrpe
+        state: started
+        enabled: yes
+
+# your_remote_hosts берется из файла инвентаря
+# RUN: ansible-playbook -i your_inventory_file install_nrpe.yml
+# внутри файла инвентаря:
+# [my_servers]
+# 192.168.1.100
+# 192.168.1.101

@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "a23f8bd2c1694945",
+        "id": "5bab15ae5012bd03",
         "type": "tabs",
         "children": [
           {
-            "id": "733509fc9320f3ba",
+            "id": "b67348032d2e5215",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Конфигурационные файлы.md",
+                "file": "Nagios Core.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Конфигурационные файлы.md",
+                "file": "Nagios Core.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Конфигурационные файлы.md",
+                "file": "Nagios Core.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Конфигурационные файлы.md"
+                "file": "Nagios Core.md"
               }
             }
           }
@@ -146,12 +146,20 @@
       "command-palette:Открыть палитру команд": false
     }
   },
-  "active": "733509fc9320f3ba",
+  "active": "b67348032d2e5215",
   "lastOpenFiles": [
     "Nagios Core.md",
-    "Конфигурационные файлы.md",
     "Monitoring systems.md",
+    "Установка Nagios Core.md",
+    "Быстрые заметки.md",
+    "NCPA Agent.md",
+    "NRPE.md",
+    "Конфигурационные файлы.md",
+    "NSClient++.md",
+    "CGI.md",
+    "Grafana.md",
     "Prometheus.md",
+    "Pasted image 20231209104745.png",
     "IT/Nagios.md",
     "IT"
   ]

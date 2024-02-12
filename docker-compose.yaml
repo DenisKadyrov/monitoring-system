@@ -1,6 +1,6 @@
 version: '3'
 services:
-        nagios:
-                image: jasonrivers/nagios:latest
-                ports:
-                        - "8888:80"
+  nagios:
+    image: jasonrivers/nagios:latest
+      ports:
+        - "8888:80"

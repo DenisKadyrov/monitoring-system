@@ -2,5 +2,7 @@ version: '3'
 services:
   nagios:
     image: jasonrivers/nagios:latest
-      ports:
+    ports:
         - "8888:80"
+    volumes:
+        - ./opt/nagios/etc/:/opt/nagios/etc/

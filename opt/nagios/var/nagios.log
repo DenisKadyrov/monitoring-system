@@ -1,0 +1,17 @@
+[1707735929] Nagios 4.5.0 starting... (PID=25)
+[1707735929] Local time is Mon Feb 12 11:05:29 UTC 2024
+[1707735929] LOG VERSION: 2.0
+[1707735929] qh: Socket '/opt/nagios/var/rw/nagios.qh' successfully initialized
+[1707735929] qh: core query handler registered
+[1707735929] qh: echo service query handler registered
+[1707735929] qh: help for the query handler registered
+[1707735929] wproc: Successfully registered manager as @wproc with query handler
+[1707735929] wproc: Registry request: name=Core Worker 36;pid=36
+[1707735929] wproc: Registry request: name=Core Worker 39;pid=39
+[1707735929] wproc: Registry request: name=Core Worker 38;pid=38
+[1707735929] wproc: Registry request: name=Core Worker 37;pid=37
+[1707735930] Successfully launched command file worker with pid 40
+[1707736057] SERVICE ALERT: localhost;HTTP;WARNING;SOFT;1;HTTP WARNING: HTTP/1.1 401 Unauthorized - 695 bytes in 0.001 second response time
+[1707736117] SERVICE ALERT: localhost;HTTP;WARNING;SOFT;2;HTTP WARNING: HTTP/1.1 401 Unauthorized - 695 bytes in 0.003 second response time
+[1707736177] SERVICE ALERT: localhost;HTTP;WARNING;SOFT;3;HTTP WARNING: HTTP/1.1 401 Unauthorized - 695 bytes in 0.001 second response time
+[1707736239] SERVICE ALERT: localhost;HTTP;WARNING;HARD;4;HTTP WARNING: HTTP/1.1 401 Unauthorized - 695 bytes in 0.001 second response time

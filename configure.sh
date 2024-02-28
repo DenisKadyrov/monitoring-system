@@ -34,10 +34,10 @@ else
 	echo "Не удалось определить дистрибутив Linux."
 fi
 
-if ! command -v python &>/dev/null; then
+if ! command -v python3 &>/dev/null; then
 	echo "Python не найден. Установка..."
 	sudo apt-get update
-	sudo apt-get install -y python
+	sudo apt-get install -y python3
 else
 	echo "Python уже установлен."
 fi
@@ -46,15 +46,15 @@ fi
 if ! command -v pip &>/dev/null; then
 	echo "pip не найден. Установка..."
 	sudo apt-get update
-	sudo apt-get install -y python-pip
+	sudo apt-get install -y python3-pip
 else
 	echo "pip уже установлен."
 fi
 
 # Проверка наличия PyYAML
-if ! python -c "import yaml" &>/dev/null; then
-	echo "PyYAML не найден. Установка..."
-	sudo pip install pyyaml
+if ! python3 -c "import yaml" &>/dev/null; then
+	echo "PyYaml не найден. Установка..."
+	sudo pip install PyYaml
 else
-	echo "PyYAML уже установлен."
+	echo "PyYaml уже установлен."
 fi

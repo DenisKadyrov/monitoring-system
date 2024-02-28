@@ -1,8 +1,13 @@
 version: '3'
 services:
-  nagios:
-    image: jasonrivers/nagios:latest
-    ports:
-        - "8888:80"
-    volumes:
-        - ./opt/nagios/etc/:/opt/nagios/etc/
+    prometheus:
+        image: ubuntu/prometheus:latest
+        ports:
+            - "9090:9090"
+        volumes:
+            - ./prometheus/:/etc/prometheus/
+
+    grafana:
+        image: grafana/grafana-enterprise:latest
+        ports:
+            - "3000:3000"

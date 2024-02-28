@@ -19,7 +19,7 @@ def get_prometheus_config():
             
     config['scrape_configs'].append({
         'job_name': "node",
-        'static_configs': {'targets': targets}
+        'static_configs': [{'targets': targets}]
     })
 
     return config

@@ -33,3 +33,28 @@ elif [ -f /etc/redhat-release ]; then
 else
 	echo "Не удалось определить дистрибутив Linux."
 fi
+
+if ! command -v python &>/dev/null; then
+	echo "Python не найден. Установка..."
+	sudo apt-get update
+	sudo apt-get install -y python
+else
+	echo "Python уже установлен."
+fi
+
+# Проверка наличия pip
+if ! command -v pip &>/dev/null; then
+	echo "pip не найден. Установка..."
+	sudo apt-get update
+	sudo apt-get install -y python-pip
+else
+	echo "pip уже установлен."
+fi
+
+# Проверка наличия PyYAML
+if ! python -c "import yaml" &>/dev/null; then
+	echo "PyYAML не найден. Установка..."
+	sudo pip install pyyaml
+else
+	echo "PyYAML уже установлен."
+fi

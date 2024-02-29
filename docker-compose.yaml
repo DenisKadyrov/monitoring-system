@@ -2,6 +2,7 @@ version: '3'
 services:
     prometheus:
         image: ubuntu/prometheus:latest
+        container_name: prometheus
         ports:
             - "9090:9090"
         volumes:
@@ -9,5 +10,18 @@ services:
 
     grafana:
         image: grafana/grafana-enterprise:latest
+        container_name: grafana
         ports:
             - "3000:3000"
+
+    alertmanager:
+        image: prom/alertmanager
+        container_name: alertmanager
+        volumes:
+          - ./alertmanager:/alertmanager/data
+          - ./alertmanager/config:/etc/alertmanager/
+        command:
+          - '--config.file=/etc/alertmanager/alertmanager.yaml'
+        ports:
+          - 9093:9093
+

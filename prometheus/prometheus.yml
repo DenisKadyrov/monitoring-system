@@ -2,7 +2,7 @@ global:
   evaluation_interval: 15s
   scrape_interval: 15s
 rule_files:
-  - rules.yaml
+  - 'rules.yml'
 scrape_configs:
 - job_name: node
   static_configs:

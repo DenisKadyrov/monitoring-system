@@ -21,14 +21,14 @@ services:
         ports:
             - "3000:3000"
 
-#    alertmanager:
-#       image: prom/alertmanager
-#       container_name: alertmanager
-#       volumes:
-#         - ./alertmanager:/alertmanager/data
-#         - ./alertmanager/config:/etc/alertmanager/
-#       command:
-#         - '--config.file=/etc/alertmanager/alertmanager.yaml'
-#       ports:
-#         - 9093:9093
+    alertmanager:
+        image: prom/alertmanager
+        container_name: alertmanager
+        volumes:
+          - ./alertmanager:/alertmanager/data
+          - ./alertmanager/config:/etc/alertmanager/
+        command:
+          - '--config.file=/etc/alertmanager/alertmanager.yaml'
+        ports:
+          - 9093:9093
 

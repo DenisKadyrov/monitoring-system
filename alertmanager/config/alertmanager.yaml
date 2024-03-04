@@ -1,16 +1,19 @@
-global:
-  resolve_timeout: 5m
-
 route:
-  group_by: ['alertname', 'severity']
-  group_wait: 10s
-  group_interval: 10s
-  repeat_interval: 1h
-  receiver: 'telegram'
+group_by: ['alertname', 'instance', 'severity']
+group_wait: 10s
+group_interval: 10s
+repeat_interval: 1h
+receiver: 'telepush' #Название ресивера, который будет обрабатывать алерты.
 
 receivers:
-- name: 'telegram'
-    webhook_configs:
-        - send_resolved: true
-            - url: 'http://0.0.0.0:5000'
+- name: 'telepush'
+webhook_configs:
+- url: 'https://telepush.dev/api/inlets/alertmanager/42e9a8' #URL с токеном после последнего слеша
+http_config:
 
+inhibit_rules:
+- source_match:
+severity: 'critical'
+target_match:
+severity: 'warning'
+equal: ['alertname', 'dev', 'instance']

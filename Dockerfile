@@ -1,7 +1,9 @@
 FROM python:3.8-slim
 
 # Установка зависимостей Flask
-RUN pip install Flask requests gunicorn
+RUN pip install Flask
+RUN pip install requests
+RUN pip install gunicorn
 
 # Копирование вашего приложения в образ
 COPY app.py /app.py

@@ -1,8 +1,9 @@
 FROM python:3.8-slim
 
 # Установка зависимостей Flask
-RUN pip install Flask requests gunicorn
-
+RUN pip3 install Flask 
+RUN pip3 install requests
+RUN pip3 install gunicorn 
 # Копирование вашего приложения в образ
 COPY app.py /app.py
 
@@ -10,5 +11,8 @@ COPY app.py /app.py
 WORKDIR .
 
 # Запуск Gunicorn для Flask
-#CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:5000", "app:app"]
-CMD python3 app.py
+CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:5000", "app:app"]
+#ENTRYPOINT ["python3"]
+#CMD gunicorn -w 4 app:app
+#CMD ["app.py"]
+EXPOSE 5000

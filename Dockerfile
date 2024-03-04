@@ -1,7 +1,7 @@
 FROM python:3.8-slim
 
 # Установка зависимостей Flask
-<<<<<<< HEAD
+#<<<<<<< HEAD
 RUN pip install Flask
 RUN pip install requests
 RUN pip install gunicorn
@@ -10,7 +10,7 @@ RUN pip install gunicorn
 RUN pip3 install Flask 
 RUN pip3 install requests
 RUN pip3 install gunicorn 
->>>>>>> refs/remotes/origin/main
+#>>>>>>> refs/remotes/origin/main
 # Копирование вашего приложения в образ
 COPY app.py /app.py
 

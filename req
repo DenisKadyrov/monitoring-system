@@ -1,17 +1,15 @@
-curl -X POST http://your-flask-app-url:5000/ \
-  -H "Content-Type: application/json" \
-  -d '{
-    "alerts": [
-      {
-        "labels": {
-          "alertname": "HighErrorRate",
-          "severity": "critical"
-        },
-        "annotations": {
-          "summary": "High error rate detected",
-          "description": "The API server is experiencing a high error rate. Investigate immediately."
-        }
-      }
-    ]
-  }'
+curl -XPOST "http://localhost:9093/api/v1/alerts" \
+  -d \
+  "[{
+    \"status\": \"firing\",
+    \"labels\": {
+      \"alertname\": \"Test Alert\",
+      \"service\": \"test-service\",
+      \"severity\":\"warning\",
+      \"instance\": \"testinstance.example.com\"
+    },
+    \"annotations\": {
+      \"summary\": \"High latency is high!\"
+    }
+  }]"
 

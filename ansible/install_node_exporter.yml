@@ -15,4 +15,5 @@
       service:
           name: prometheus-node-exporter
           state: started
+# ansible-playbook -i hosts install -kK 
 

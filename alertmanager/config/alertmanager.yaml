@@ -12,7 +12,7 @@ receivers:
 
 inhibit_rules:
   - source_match: 
-    - severity: "critical"
+      severity: "critical"
     target_match: 
-      - severity: "warning"
+      severity: "warning"
     equal: ['alertname', 'dev', 'instance']

@@ -8,12 +8,11 @@ route:
 receivers:
 - name: 'telepush'
   webhook_configs:
-  - url: 'https://telepush.dev/api/inlets/alertmanager/a7524e' #URL с токеном после последнего слеша
-http_config:
+  - url: 'https://telepush.dev/api/inlets/alertmanager/42e9a8' #URL с токеном после последнего слеша
 
 inhibit_rules:
   - source_match:
       severity: 'critical'
     target_match:
       severity: 'warning'
-equal: ['alertname', 'dev', 'instance']
+    equal: ['alertname', 'dev', 'instance']

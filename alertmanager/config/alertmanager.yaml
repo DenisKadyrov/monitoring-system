@@ -1,17 +1,19 @@
+global:
+  resolve_timeout: 5m
+
 route:
-  group_by: ['alertname', 'instance', 'severity']
+  group_by: ['alertname']
   group_wait: 10s
   group_interval: 10s
   repeat_interval: 1h
-  receiver: 'telepush' #Название ресивера, который будет обрабатывать алерты.
-
+  receiver: 'web.hook'
 receivers:
-  - name: 'telepush'
-    webhook_configs:
-      - url: 'https://telepush.dev/api/inlets/alertmanager/42e9a8' #URL с токеном после последнего слеша
-
+- name: 'web.hook'
+  webhook_configs:
+  - url: 'http://0.0.0.0:5000/'
 inhibit_rules:
-  - source_match: 
-    - severity: "critical"
-    target_match: [severity = "warning"]
+  - source_match:
+      severity: 'critical'
+    target_match:
+      severity: 'warning'
     equal: ['alertname', 'dev', 'instance']

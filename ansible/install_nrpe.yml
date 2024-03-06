@@ -13,8 +13,4 @@
           name: nagios-nrpe-server
           state: started
 # your_remote_hosts берется из файла инвентаря
-# RUN: ansible-playbook -i your_inventory_file install_nrpe.yml
-# внутри файла инвентаря:
-# [my_servers]
-# 192.168.1.100
-# 192.168.1.101
+# RUN: ansible-playbook -i your_inventory_file install_nrpe.yml -kK

@@ -43,7 +43,6 @@ groups:
     annotations:
       summary: Load
 #================Disk space Used ================================================
-<<<<<<< HEAD
   - alert: diskSpaceUsed
     expr: (100.0 - 100 * (node_filesystem_avail{job="192.168.10.2"} / node_filesystem_size{job="192.168.10.2"})) > 80
     for: 10m

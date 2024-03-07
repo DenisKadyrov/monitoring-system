@@ -120,7 +120,6 @@ groups:
       severity: page
     annotations:
       summary: NetworkTrafficTransmit
-
 #===========Netstat========================================
   - alert: Netstat
     expr: node_netstat_Tcp_CurrEstab{job="192.168.10.2"} > 20

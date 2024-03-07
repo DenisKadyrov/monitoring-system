@@ -18,7 +18,7 @@ groups:
       severity: page
     annotations:
       summary: High CPU usage detected CPU usage is above 75%
-	# ==============Memory==========================================================
+# ==============Memory==========================================================
   - alert: NodeSwapUsageSwap
     expr: (((node_memory_SwapTotal-node_memory_SwapFree{job="192.168.10.2"})/node_memory_SwapTotal{job="192.168.10.2"})*100) > 30
     for: 2m
@@ -121,7 +121,7 @@ groups:
     annotations:
       summary: NetworkTrafficTransmit
 
-	#===========Netstat========================================
+#===========Netstat========================================
   - alert: Netstat
     expr: node_netstat_Tcp_CurrEstab{job="192.168.10.2"} > 20
     for: 5m
@@ -130,7 +130,7 @@ groups:
     annotations:
       summary: Netstat
 
-	#===========UDP Stats============================
+#===========UDP Stats============================
   - alert: UDPStatsInDatagrams
     expr: irate(node_netstat_Udp_InDatagrams{job="192.168.10.2"}[5m]) > 50
     for: 5m
@@ -275,4 +275,3 @@ groups:
 #       severity: page
 #     annotations:
 #       summary: UDPStats
->>>>>>> 54fac3aac61036ae71d8903481a21df6f9cada96

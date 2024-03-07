@@ -9,10 +9,7 @@ def get_prometheus_config(prom):
         for host in hosts.readlines():
             targets.append(host.replace("\n", "") + ":9100")
             
-    prom['scrape_configs'].append({
-        'job_name': "node"
-        'static_configs': [{'targets': targets}]
-    })
+    prom['scrape_configs'][0]["static_configs"] = [{'targets': targets}]
 
     return prom
 

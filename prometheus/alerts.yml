@@ -76,7 +76,7 @@ groups:
       summary: DiskUtilizationPerDevice
 #============Disk IOs per Device ========================================
   - alert: DiskIOsPerDeviceRead 
-    expr: irate(node_disk_reads_completed{job="192.168.10.2"}[5m]) >10 
+    expr: irate(node_disk_reads_completed{job="192.168.10.2"}[5m]) > 10 
     for: 5m
     labels:
       severity: page
@@ -84,7 +84,7 @@ groups:
       summary: DiskIOsPerDevice
 
   - alert: DiskIOsPerDeviceWrite
-    expr: irate(node_disk_writes_completed{job="192.168.10.2"}[5m]) > 10.2
+    expr: irate(node_disk_writes_completed{job="192.168.10.2"}[5m]) > 10
     for: 5m
     labels:
       severity: page
@@ -92,7 +92,7 @@ groups:
       summary: DiskIOsPerDevice
 #===========Disk Throughput per Device========================================
   - alert: DiskThroughputPerDeviceReads
-    expr: irate(node_disk_sectors_read{job="192.168.10.2"}[5m]) * 512 >10000000
+    expr: irate(node_disk_sectors_read{job="192.168.10.2"}[5m]) * 512 > 10000000
     for: 5m
     labels:
       severity: page

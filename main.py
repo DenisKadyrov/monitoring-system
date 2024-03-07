@@ -51,6 +51,13 @@ def main():
             'command': ['--config.file=/etc/alertmanager/alertmanager.yaml'],
             'ports': ['9093:9093']
         }
+
+        docker_compose["services"]['flask-app'] = {
+            'build': '.',
+            'ports': ['5000:5000'],
+            'restart': 'always'
+        }
+
         token = f'https://telepush.dev/api/inlets/alertmanager/{input("Введите токен бота: ")}'
         with open("alertmanager/config/alertmanager.yaml") as file:
             alert_file = yaml.safe_load(file)

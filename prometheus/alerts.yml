@@ -242,8 +242,7 @@ groups:
       severity: page
     annotations:
       summary: Netstat
-
-	#===========UDP Stats============================
+#===========UDP Stats============================
   - alert: UDPStatsInDatagrams
     expr: irate(node_netstat_Udp_InDatagrams{job="192.168.10.2"}[5m]) > 50
     for: 5m

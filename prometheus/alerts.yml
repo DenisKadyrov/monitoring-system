@@ -43,119 +43,119 @@ groups:
     annotations:
       summary: Load
 #================Disk space Used ================================================
-  - alert: diskSpaceUsed
-    expr: (100.0 - 100 * (node_filesystem_avail{job="192.168.10.2"} / node_filesystem_size{job="192.168.10.2"})) > 80
-    for: 10m
-    labels:
-      severity: page
-    annotations:
-      summary: Disk space userd 80
-#=============nodeContrack========================================
-  - alert: nodeContrack
-    expr: node_nf_conntrack_entries{job="192.168.10.2"} > 200
-    for: 10m
-    labels:
-      severity: page
-    annotations:
-      summary: nodeContrack
-#=============nodeCntextSwitches ======================================== 
-  - alert: nodeCntextSwitches
-    expr: irate(node_context_switches{job="192.168.10.2"}[5m]) > 100
-    for: 5m
-    labels:
-      severity: page
-    annotations:
-      summary: nodeCntextSwitches
-#=============Disk Utilization per Device ========================================
-  - alert: DiskUtilizationPerDevice
-    expr: irate(node_disk_io_time_ms{job="192.168.10.2"}[5m])/10 > 0.2
-    for: 5m
-    labels:
-      severity: page
-    annotations:
-      summary: DiskUtilizationPerDevice
-#============Disk IOs per Device ========================================
-  - alert: DiskIOsPerDeviceRead 
-    expr: irate(node_disk_reads_completed{job="192.168.10.2"}[5m]) >10 
-    for: 5m
-    labels:
-      severity: page
-    annotations:
-      summary: DiskIOsPerDevice
-
-  - alert: DiskIOsPerDeviceWrite
-    expr: irate(node_disk_writes_completed{job="192.168.10.2"}[5m]) > 10.2
-    for: 5m
-    labels:
-      severity: page
-    annotations:
-      summary: DiskIOsPerDevice
-#===========Disk Throughput per Device========================================
-  - alert: DiskThroughputPerDeviceReads
-    expr: irate(node_disk_sectors_read{job="192.168.10.2"}[5m]) * 512 >10000000
-    for: 5m
-    labels:
-      severity: page
-    annotations:
-      summary: DiskIOsPerDevice 
-  - alert: DiskThroughputPerDeviceWrites
-    expr: irate(node_disk_sectors_written{job="192.168.10.2"}[5m]) * 512 > 10000000
-    for: 5m
-    labels:
-      severity: page
-    annotations:
-      summary: DiskIOsPerDevice
-#===========Network Traffic========================================
-  - alert: NetworkTrafficReceive
-    expr: irate(node_network_receive_bytes{job="192.168.10.2"}[5m])*8 > 5000
-    for: 5m
-    labels:
-      severity: page
-    annotations:
-      summary: NetworkTrafficReceive
-  - alert: NetworkTrafficTransmit
-    expr: irate(node_network_transmit_bytes{job="192.168.10.2"}[5m])*8 > 5000
-    for: 5m
-    labels:
-      severity: page
-    annotations:
-      summary: NetworkTrafficTransmit
-
-	#===========Netstat========================================
-  - alert: Netstat
-    expr: node_netstat_Tcp_CurrEstab{job="192.168.10.2"} > 20
-    for: 5m
-    labels:
-      severity: page
-    annotations:
-      summary: Netstat
-
-	#===========UDP Stats============================
-  - alert: UDPStatsInDatagrams
-    expr: irate(node_netstat_Udp_InDatagrams{job="192.168.10.2"}[5m]) > 50
-    for: 5m
-    labels:
-      severity: page
-    annotations:
-      summary: UDPStats
-  - alert: UDPStatsInErrors
-    expr: irate(node_netstat_Udp_InErrors{job="192.168.10.2"}[5m]) > 20
-    for: 5m
-    labels:
-      severity: page
-    annotations:
-      summary: UDPStats
-  - alert: UDPStatsOutDatagrams 
-    expr: irate(node_netstat_Udp_OutDatagrams{job="192.168.10.2"}[5m]) > 50
-    for: 5m
-    labels:
-      severity: page
-    annotations:
-      summary: UDPStats
-  - alert: UDPStatsNoPorts
-    expr: irate(node_netstat_Udp_NoPorts{job="192.168.10.2"}[5m]) > 20
-    for: 5m
-    labels:
-      severity: page
-    annotations:
-      summary: UDPStats
+#   - alert: diskSpaceUsed
+#     expr: (100.0 - 100 * (node_filesystem_avail{job="192.168.10.2"} / node_filesystem_size{job="192.168.10.2"})) > 80
+#     for: 10m
+#     labels:
+#       severity: page
+#     annotations:
+#       summary: Disk space userd 80
+# #=============nodeContrack========================================
+#   - alert: nodeContrack
+#     expr: node_nf_conntrack_entries{job="192.168.10.2"} > 200
+#     for: 10m
+#     labels:
+#       severity: page
+#     annotations:
+#       summary: nodeContrack
+# #=============nodeCntextSwitches ======================================== 
+#   - alert: nodeCntextSwitches
+#     expr: irate(node_context_switches{job="192.168.10.2"}[5m]) > 100
+#     for: 5m
+#     labels:
+#       severity: page
+#     annotations:
+#       summary: nodeCntextSwitches
+# #=============Disk Utilization per Device ========================================
+#   - alert: DiskUtilizationPerDevice
+#     expr: irate(node_disk_io_time_ms{job="192.168.10.2"}[5m])/10 > 0.2
+#     for: 5m
+#     labels:
+#       severity: page
+#     annotations:
+#       summary: DiskUtilizationPerDevice
+# #============Disk IOs per Device ========================================
+#   - alert: DiskIOsPerDeviceRead 
+#     expr: irate(node_disk_reads_completed{job="192.168.10.2"}[5m]) >10 
+#     for: 5m
+#     labels:
+#       severity: page
+#     annotations:
+#       summary: DiskIOsPerDevice
+#
+#   - alert: DiskIOsPerDeviceWrite
+#     expr: irate(node_disk_writes_completed{job="192.168.10.2"}[5m]) > 10.2
+#     for: 5m
+#     labels:
+#       severity: page
+#     annotations:
+#       summary: DiskIOsPerDevice
+# #===========Disk Throughput per Device========================================
+#   - alert: DiskThroughputPerDeviceReads
+#     expr: irate(node_disk_sectors_read{job="192.168.10.2"}[5m]) * 512 >10000000
+#     for: 5m
+#     labels:
+#       severity: page
+#     annotations:
+#       summary: DiskIOsPerDevice 
+#   - alert: DiskThroughputPerDeviceWrites
+#     expr: irate(node_disk_sectors_written{job="192.168.10.2"}[5m]) * 512 > 10000000
+#     for: 5m
+#     labels:
+#       severity: page
+#     annotations:
+#       summary: DiskIOsPerDevice
+# #===========Network Traffic========================================
+#   - alert: NetworkTrafficReceive
+#     expr: irate(node_network_receive_bytes{job="192.168.10.2"}[5m])*8 > 5000
+#     for: 5m
+#     labels:
+#       severity: page
+#     annotations:
+#       summary: NetworkTrafficReceive
+#   - alert: NetworkTrafficTransmit
+#     expr: irate(node_network_transmit_bytes{job="192.168.10.2"}[5m])*8 > 5000
+#     for: 5m
+#     labels:
+#       severity: page
+#     annotations:
+#       summary: NetworkTrafficTransmit
+#
+# 	#===========Netstat========================================
+#   - alert: Netstat
+#     expr: node_netstat_Tcp_CurrEstab{job="192.168.10.2"} > 20
+#     for: 5m
+#     labels:
+#       severity: page
+#     annotations:
+#       summary: Netstat
+#
+# 	#===========UDP Stats============================
+#   - alert: UDPStatsInDatagrams
+#     expr: irate(node_netstat_Udp_InDatagrams{job="192.168.10.2"}[5m]) > 50
+#     for: 5m
+#     labels:
+#       severity: page
+#     annotations:
+#       summary: UDPStats
+#   - alert: UDPStatsInErrors
+#     expr: irate(node_netstat_Udp_InErrors{job="192.168.10.2"}[5m]) > 20
+#     for: 5m
+#     labels:
+#       severity: page
+#     annotations:
+#       summary: UDPStats
+#   - alert: UDPStatsOutDatagrams 
+#     expr: irate(node_netstat_Udp_OutDatagrams{job="192.168.10.2"}[5m]) > 50
+#     for: 5m
+#     labels:
+#       severity: page
+#     annotations:
+#       summary: UDPStats
+#   - alert: UDPStatsNoPorts
+#     expr: irate(node_netstat_Udp_NoPorts{job="192.168.10.2"}[5m]) > 20
+#     for: 5m
+#     labels:
+#       severity: page
+#     annotations:
+#       summary: UDPStats

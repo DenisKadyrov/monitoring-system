@@ -58,3 +58,11 @@ if ! python3 -c "import yaml" &>/dev/null; then
 else
 	echo "PyYaml уже установлен."
 fi
+
+# install ansible
+sudo apt install ansible
+
+# main.py
+python3 main.py
+
+sudo docker-compose up

@@ -9,7 +9,6 @@ groups:
     annotations:
       summary: "Instance {{ .instance }} down"
     description: "{{ .instance }} of job {{ .job }} has been down for more than 5 minutes."
-
 #==========CPU==================================================================  
   - alert: NodeCPUUsage
     expr: (100 - (irate(node_cpu{mode="idle", job="192.168.10.2"}[5m]) * 100)) > 50
@@ -25,7 +24,7 @@ groups:
     labels:
       severity: page
     annotations:
-    summary: Swap usage detected Swap usage usage is above 50%
+      summary: Swap usage detected Swap usage usage is above 50%
   - alert: NodeMemoryUsageMemFree
     expr: (((node_memory_MemTotal-node_memory_MemFree-node_memory_Cached{job="192.168.10.2"})/(node_memory_MemTotal{job="192.168.10.2"})*100)) > 30
     for: 2m

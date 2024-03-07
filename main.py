@@ -3,27 +3,18 @@
 import yaml
 import os
 
-def get_prometheus_config():
-    config = {}
-    # Введите общие параметры
-    config['global'] = {
-        'scrape_interval': input("Введите интервал сбора метрик (например, 15s): "),
-        'evaluation_interval': input("Введите интервал оценки правил (например, 15s): ")
-    }
-
-    # Введите конфигурацию целей
-    config['scrape_configs'] = []
+def get_prometheus_config(prom):
     targets = []
     with open("remote_hosts.txt") as hosts:
         for host in hosts.readlines():
             targets.append(host.replace("\n", "") + ":9100")
             
-    config['scrape_configs'].append({
-        'job_name': "node",
+    prom['scrape_configs'].append({
+        'job_name': "node"
         'static_configs': [{'targets': targets}]
     })
 
-    return config
+    return prom
 
 def save_to_yaml(config, file_path):
     with open(file_path, 'w') as file:
@@ -38,6 +29,11 @@ def main():
 
     for service in services.keys():
         services[service] = int(input(f"Установить {service}? 0 - нет, 1 - да: "))
+
+    with open("prometheus/prometheus.yml") as file:
+        prometheus = yaml.safe_load(file)
+
+    prom_confs = get_prometheus_config(prometheus)
 
     with open("docker-compose.yaml") as file:
         docker_compose = yaml.safe_load(file)
@@ -69,8 +65,9 @@ def main():
             'container_name': 'grafana',
             'ports': ['3000:3000']
         }
-    save_to_yaml(docker_compose, "docker-compose.yaml.demo")    
-    save_to_yaml(alert_file, 'alertmanager/config/alertmanager.yaml.demo')
+    save_to_yaml(docker_compose, "docker-compose.yaml")    
+    save_to_yaml(alert_file, 'alertmanager/config/alertmanager.yaml')
+    save_to_yaml(prom_confs, "prometheus/prometheus.yml")
 
 if __name__ == "__main__":
     main()
